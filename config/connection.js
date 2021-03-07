@@ -2,7 +2,7 @@
 const Sequelize = require('sequelize');
 
 // create connection to database
-const sequelize = new Sequelize('just_tech_news_db', 'root', 'root1234', {
+const sequelize = new Sequelize(process.env.DB_NAME, porcess.env.DB_USER,process.env.DB_PW, {
     host: 'localhost',
     dialect: 'mysql',
     port: 3306
