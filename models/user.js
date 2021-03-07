@@ -11,7 +11,7 @@ User.init(
             // use the special Sequelize DataTyeps object provide what type of data it is
             type: DataTypes.INTEGER,
             // this is the equvalent of SQL's 'NOT NULL' option
-            alowNull: false,
+            allowNull: false,
             // instruct that this is the primary key
             primaryKey: true,
             // turn on auto increment
@@ -19,11 +19,11 @@ User.init(
         },
         username: {
             type: DataTypes.STRING,
-            alowNull: false
+            allowNull: false,
         },
         email: {
             type: DataTypes.STRING,
-            alowNull: false,
+            allowNull: false,
             // there cannot be any duplicate email values in this table
             unique: true,
             // if alloNull is set to false, we can run our data through validator before
@@ -34,7 +34,7 @@ User.init(
         },
         password: {
             type: DataTypes.STRING,
-            alowNull: false,
+            allowNull: false,
             validate: {
                 // this means the password must be at least four characters long
                 len: [4]

@@ -50,11 +50,12 @@ router.put('/:id', (req, res) => {
         }
     })
         .then(dbUserData => {
+            console.log('dbUserData:', dbUserData);
             if (!dbUserData[0]) {
                 return res.status(404).json({ message: 'No user found with this id' });
             };
 
-            res.status(dbUserData);
+            res.json(dbUserData);
         })
         .catch(err => {
             console.log(err);
