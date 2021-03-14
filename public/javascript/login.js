@@ -41,4 +41,4 @@ async function loginFormHandler(e) {
 };
 
 document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
-document.querySelector('.login-form').addEvenetListener('submit', loginFormHandler);
+document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
