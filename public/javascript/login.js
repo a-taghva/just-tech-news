@@ -36,7 +36,7 @@ async function loginFormHandler(e) {
             headers: { 'Content-Type': 'application/json' }
         });
 
-        (res.ok) ? document.location.replace('/') : alert(res.statusText);
+        (res.ok) ? document.location.replace('/dashboard') : alert(res.statusText);
     };
 };
 
