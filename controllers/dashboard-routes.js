@@ -1,12 +1,14 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
+const withAuth = require('../utils/auth');
 
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
+  console.log(req.session.user_id);
   Post.findAll({
     where: {
-      // use the ID from the sessino
-      user_id = req.session.user_id
+      // use the ID from the session
+      user_id: req.session.user_id
     },
     attributes: [
       'id',
@@ -33,7 +35,7 @@ router.get('/', (req, res) => {
     .then(dbPostData => {
       // serialize data before passing to template
       const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('dashbaord', { posts, loggedIn: true });
+      res.render('dashboard', { posts, loggedIn: true });
     })
     .catch(err => {
       console.log(err);
